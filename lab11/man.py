@@ -169,16 +169,6 @@ def func():
         res_otsu: Tuple[int, np.ndarray] = cv2.threshold(mag_grid_norm, thresh=0, maxval=255, type=cv2.THRESH_OTSU|cv2.THRESH_BINARY)
         mag_grid_bin = res_otsu[1]
 
-    mag_grid_bin: Optional[np.ndarray] = None
-    if (mag_max-mag_min) < 2.0:
-        mag_grid_bin = np.zeros_like(mag_grid, dtype=np.uint8)
-    else:
-        res_otsu: Tuple[int, np.ndarray] = cv2.threshold(mag_grid_norm, thresh=0, maxval=255, type=cv2.THRESH_OTSU|cv2.THRESH_BINARY)
-        mag_grid_bin = res_otsu[1]
-
-    
-
-
 
     imgs_to_show: Dict[str, np.ndarray] = {
         "img_gray": img_gray,
